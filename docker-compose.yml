@@ -1,0 +1,89 @@
+version: '3.7'
+
+services:
+  consul-server-1:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-1
+    restart: always
+    volumes:
+      - ./config/consul/consul-server-1-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8501:8500"
+      - "8601:8600/tcp"
+      - "8601:8600/udp"
+    command: "agent"
+
+  consul-server-2:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-2
+    restart: always
+    volumes:
+      - ./config/consul/consul-server-2-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8502:8500"
+      - "8602:8600/tcp"
+      - "8602:8600/udp"
+    command: "agent"
+
+  consul-server-3:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-3
+    restart: always
+    volumes:
+      - ./config/consul/consul-server-3-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8503:8500"
+      - "8603:8600/tcp"
+      - "8603:8600/udp"
+    command: "agent"
+
+  consul-server-4:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-4
+    restart: always
+    volumes:
+      - ./config/consul/consul-server-4-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8504:8500"
+      - "8604:8600/tcp"
+      - "8604:8600/udp"
+    command: "agent"
+
+  consul-server-5:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-5
+    restart: always
+    volumes:
+      - ./config/consul/consul-server-5-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8505:8500"
+      - "8605:8600/tcp"
+      - "8605:8600/udp"
+    command: "agent"
+
+  consul-agent-1:
+    image: hashicorp/consul:1.17
+    container_name: consul-agent-1
+    restart: always
+    volumes:
+      - ./config/consul/consul-agent-1-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8506:8500"
+      - "8606:8600/tcp"
+      - "8606:8600/udp"
+    command: "agent"
+
+networks:
+  acme_private_network:
