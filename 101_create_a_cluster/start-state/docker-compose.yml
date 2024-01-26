@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  consul-server-1:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-1
+    volumes:
+      - ./config/consul-server-1-config.json:/consul/config/server.json:ro
+    networks:
+      - acme_private_network
+    ports:
+      - "8501:8500"
+      - "8601:8600/tcp"
+      - "8601:8600/udp"
+    command: "agent"
+
+networks:
+  acme_private_network:
