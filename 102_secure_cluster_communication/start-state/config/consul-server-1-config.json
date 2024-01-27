@@ -3,7 +3,11 @@
   "server": true,
   "bootstrap": true,
   "retry_join": [
-    "consul-server-1"
+    "consul-server-1",
+    "consul-server-2",
+    "consul-server-3",
+    "consul-server-4",
+    "consul-server-5"
   ],
   "ui_config": {
     "enabled": true
