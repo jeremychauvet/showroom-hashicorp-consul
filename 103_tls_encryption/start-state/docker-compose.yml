@@ -1,0 +1,75 @@
+version: '3.7'
+
+services:
+  consul-server-1:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-1
+    volumes:
+      - ./config/consul-server-1-config.json:/consul/config/server.json:ro
+      - ./certificates/:/consul/certificates/
+    networks:
+      - acme_private_network
+    ports:
+      - "8501:8500"
+      - "8601:8600/tcp"
+      - "8601:8600/udp"
+    command: "agent"
+
+  consul-server-2:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-2
+    volumes:
+      - ./config/consul-server-2-config.json:/consul/config/server.json:ro
+      - ./certificates/:/consul/certificates/
+    networks:
+      - acme_private_network
+    ports:
+      - "8502:8500"
+      - "8602:8600/tcp"
+      - "8602:8600/udp"
+    command: "agent"
+
+  consul-server-3:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-3
+    volumes:
+      - ./config/consul-server-3-config.json:/consul/config/server.json:ro
+      - ./certificates/:/consul/certificates/
+    networks:
+      - acme_private_network
+    ports:
+      - "8503:8500"
+      - "8603:8600/tcp"
+      - "8603:8600/udp"
+    command: "agent"
+
+  consul-server-4:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-4
+    volumes:
+      - ./config/consul-server-4-config.json:/consul/config/server.json:ro
+      - ./certificates/:/consul/certificates/
+    networks:
+      - acme_private_network
+    ports:
+      - "8504:8500"
+      - "8604:8600/tcp"
+      - "8604:8600/udp"
+    command: "agent"
+
+  consul-server-5:
+    image: hashicorp/consul:1.17
+    container_name: consul-server-5
+    volumes:
+      - ./config/consul-server-5-config.json:/consul/config/server.json:ro
+      - ./certificates/:/consul/certificates/
+    networks:
+      - acme_private_network
+    ports:
+      - "8505:8500"
+      - "8605:8600/tcp"
+      - "8605:8600/udp"
+    command: "agent"
+
+networks:
+  acme_private_network:

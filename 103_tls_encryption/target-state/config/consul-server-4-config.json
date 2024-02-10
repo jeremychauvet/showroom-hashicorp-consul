@@ -1,0 +1,32 @@
+{
+  "node_name": "consul-server-4",
+  "server": true,
+  "bootstrap": false,
+  "retry_join": [
+    "consul-server-1",
+    "consul-server-2",
+    "consul-server-3",
+    "consul-server-4",
+    "consul-server-5"
+  ],
+  "ui_config": {
+    "enabled": true
+  },
+  "datacenter": "dc1",
+  "data_dir": "/consul/data",
+  "addresses": {
+    "http": "0.0.0.0"
+  },
+  "encrypt": "7Rqzack5azTHV0i6dT0wul8fp92+aWxadgv6S3f1zsc=",
+  "encrypt_verify_incoming": true,
+  "encrypt_verify_outgoing": true,
+  "verify_incoming": true,
+  "verify_outgoing": true,
+  "verify_server_hostname": true,
+  "ca_file": "/consul/certificates/consul-agent-ca.pem",
+  "cert_file": "/consul/certificates/dc1-server-consul-0.pem",
+  "key_file": "/consul/certificates/dc1-server-consul-0-key.pem",
+  "auto_encrypt": {
+    "allow_tls": true
+  }
+}
